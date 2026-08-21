@@ -25,7 +25,7 @@ public class Arreglo_unidimensiona {
 
                 while (numero <= numeros[i - 1]) {
 
-                    System.out.println("Error: el número debe ser mayor que "
+                    System.out.println("El numero debe ser mayor que "
                             + numeros[i - 1]);
 
                     System.out.print("Ingrese nuevamente el número "
