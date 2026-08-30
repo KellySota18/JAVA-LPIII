@@ -1,49 +1,23 @@
-package actividad4;
+package Modelo;
 
-public class Persona {
-    private int id;
+public abstract class Persona {
+    private String dni;
     private String nombre;
-    private String apellido;
-    private Cuenta cuenta;
+    private int edad;
 
-    public Persona(int id, String nombre, String apellido) {
-        this.id = id;
+    public Persona(String dni, String nombre, int edad) {
+        this.dni = dni;
         this.nombre = nombre;
-        this.apellido = apellido;
-        // Composicion: la cuenta se crea y "vive" solo dentro de la persona
-        // El numero de cuenta se determina a partir del id de la persona
-        this.cuenta = new Cuenta(id * 1000);
+        this.edad = edad;
     }
 
-    public int getId() {
-        return id;
-    }
+    public String getDni() { return dni; }
+    public String getNombre() { return nombre; }
+    public int getEdad() { return edad; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public Cuenta getCuenta() {
-        return cuenta;
-    }
-
-    public String toString() {
-        return "Persona [ID: " + id + ", Nombre: " + nombre + " " + apellido + ", " + cuenta.toString() + "]";
+    public void mostrarInfo() {
+        System.out.println("DNI: " + dni);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad);
     }
 }
