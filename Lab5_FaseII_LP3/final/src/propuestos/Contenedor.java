@@ -1,7 +1,5 @@
 package propuestos;
-
 import java.util.ArrayList;
-
 /**
  * Ejercicio 4: contenedor generico de multiples pares.
  *
@@ -9,7 +7,8 @@ import java.util.ArrayList;
  * @param <S> tipo de los segundos elementos
  */
 public class Contenedor<F, S> {
-
+//Crea una lista privada y final llamada pares que almacenará objetos Par cuyos tipos serán F y S
+//ArrayList<Par<F, S>>  : Indica que pares es una lista que almacena objetos de tipo
     private final ArrayList<Par<F, S>> pares = new ArrayList<>();
 
     /** Anade un nuevo par al contenedor. */
@@ -20,18 +19,17 @@ public class Contenedor<F, S> {
     /** Devuelve el par en la posicion indicada. */
     public Par<F, S> obtenerPar(int indice) {
         if (indice < 0 || indice >= pares.size()) {
-            throw new IndexOutOfBoundsException(
-                    "Indice " + indice + " fuera de rango (tamanio: " + pares.size() + ")");
+            throw new IndexOutOfBoundsException("Indice " + indice + " fuera de rango (tamanio: " + pares.size() + ")");
         }
         return pares.get(indice);
     }
 
-    /** Devuelve la lista completa de pares. */
+    //Devuelve la lista completa de pares
     public ArrayList<Par<F, S>> obtenerTodosLosPares() {
         return pares;
     }
 
-    /** Imprime todos los pares almacenados. */
+    //Imprime todos los pares almacenados
     public void mostrarPares() {
         if (pares.isEmpty()) {
             System.out.println("El contenedor esta vacio.");
