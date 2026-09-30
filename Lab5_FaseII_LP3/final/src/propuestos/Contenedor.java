@@ -16,8 +16,13 @@ public class Contenedor<F, S> {
         pares.add(new Par<>(primero, segundo));
     }
 
-    /** Devuelve el par en la posicion indicada. */
+    //Devuelve el par en la posicion indicada
+    //obtenerPar(int indice) : El metodo recibe un número entero llamado indice
     public Par<F, S> obtenerPar(int indice) {
+
+        //indice < 0 → evita índices negativos.
+//indice >= pares.size() → evita acceder a una posición que no existe.
+    
         if (indice < 0 || indice >= pares.size()) {
             throw new IndexOutOfBoundsException("Indice " + indice + " fuera de rango (tamanio: " + pares.size() + ")");
         }
