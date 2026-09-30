@@ -14,6 +14,14 @@ public class PruebaMetodoGenerico {
     public static <E> int imprimirArreglo(E[] arregloEntrada, int subindiceInferior, 
     		int subindiceSuperior) throws InvalidSubscriptException {
 
+        // Valida que los índices estén dentro del rango
+        //subindiceInferior <0  índice inferior que no sea negativo
+       //subindiceInferior >= arregloEntrada.length comprueba que el índice inferior no este fuera del arreglo
+      //subindiceSuperior < 0  comprueba que el índice superior no sea negativo
+     //subindiceSuperior >= arregloEntrada.length   comprueba que el índice superior tampoco este fuera del rango
+     //subindiceSuperior <= subindiceInferior  
+
+        
         if (subindiceInferior < 0 || subindiceInferior >= arregloEntrada.length || 
         		subindiceSuperior < 0 || subindiceSuperior >= arregloEntrada.length || 
         		subindiceSuperior <= subindiceInferior) {
@@ -22,7 +30,10 @@ public class PruebaMetodoGenerico {
         }
 
         int cantidadElementos = 0;
-
+        
+//El for sirve para repetir un bloque de código varias veces
+// Imprime únicamente los elementos comprendidos entre los índices
+        
         for (int i = subindiceInferior; i <= subindiceSuperior; i++) {
             System.out.printf("%s ", arregloEntrada[i]);
             cantidadElementos++;
