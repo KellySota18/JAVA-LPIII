@@ -1,7 +1,8 @@
-package Actividad1; // Indica que la clase pertenece al paquete Actividad1.
+package Actividad1; 
 
-// Importa List para trabajar con una lista de pedidos.
+// Importa List para trabajar con una lista de pedidos
 import java.util.List;
+
 // Importa Scanner para leer los datos ingresados por el usuario.
 import java.util.Scanner;
 // Clase Vista: se encarga de mostrar información y recibir datos del usuario.
@@ -35,7 +36,6 @@ public class PedidoVista {
             System.out.println("No hay pedidos en la lista");
 
         } else {
-
             // Muestra el título de la lista de pedidos.
             System.out.println("\nLista de Pedidos:");
 
