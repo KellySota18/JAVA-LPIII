@@ -1,7 +1,7 @@
 //Esta app de del paquete GridLayoutDemo
 package GridLayoutDemo;
 import javax.swing.JFrame;
-public class App {
+public class AppGrid {
     public static void main(String[] args) {
         GridLayoutFrame marco = new GridLayoutFrame();
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
