@@ -25,18 +25,14 @@ public class GraficoBarras extends JPanel {
     public void actualizarDatos(
             String[] nombres, double[] valores) {
 
-        if (nombres == null || valores == null
-                || nombres.length == 0
-                || nombres.length != valores.length) {
+        if (nombres == null || valores == null || nombres.length == 0 || nombres.length != valores.length) {
 
-            throw new IllegalArgumentException(
-                    "Los datos del gráfico no son válidos.");
+            throw new IllegalArgumentException( "Los datos del gráfico no son válidos.");
         }
 
         for (double valor : valores) {
             if (!Double.isFinite(valor) || valor < 0) {
-                throw new IllegalArgumentException(
-                        "Los valores deben ser positivos.");
+                throw new IllegalArgumentException("Los valores deben ser positivos.");
             }
         }
 
@@ -53,9 +49,7 @@ public class GraficoBarras extends JPanel {
 
         Graphics2D g2 = (Graphics2D) g.create();
 
-        g2.setRenderingHint(
-                RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         int ancho = getWidth();
         int alto = getHeight();
@@ -98,17 +92,9 @@ public class GraficoBarras extends JPanel {
 
         g2.setColor(Color.GRAY);
 
-        g2.drawLine(
-                margenIzquierdo,
-                margenSuperior,
-                margenIzquierdo,
-                margenSuperior + altoGrafico);
+        g2.drawLine(margenIzquierdo,margenSuperior, margenIzquierdo, margenSuperior + altoGrafico);
 
-        g2.drawLine(
-                margenIzquierdo,
-                margenSuperior + altoGrafico,
-                ancho - margenDerecho,
-                margenSuperior + altoGrafico);
+        g2.drawLine(margenIzquierdo, margenSuperior + altoGrafico, ancho - margenDerecho,margenSuperior + altoGrafico);
 
         // LINEAS DE REFERENCIA
 
@@ -118,35 +104,22 @@ public class GraficoBarras extends JPanel {
 
             g2.setColor(new Color(225, 230, 238));
 
-            g2.drawLine(
-                    margenIzquierdo,
-                    y,
-                    ancho - margenDerecho,
-                    y);
+            g2.drawLine(margenIzquierdo, y, ancho - margenDerecho, y);
         }
 
         // BARRAS
 
         for (int i = 0; i < cantidad; i++) {
 
-            int x = margenIzquierdo
-                    + (int) (i * espacio)
-                    + (int) ((espacio - anchoBarra) / 2);
+            int x = margenIzquierdo + (int) (i * espacio) + (int) ((espacio - anchoBarra) / 2);
 
-            int altura = (int) (
-                    valores[i] / escala * altoGrafico);
+            int altura = (int) (valores[i] / escala * altoGrafico);
 
             int y = margenSuperior + altoGrafico - altura;
 
             g2.setColor(AZUL);
 
-            g2.fillRoundRect(
-                    x,
-                    y,
-                    anchoBarra,
-                    altura,
-                    10,
-                    10);
+            g2.fillRoundRect(x, y,anchoBarra, altura,10,10);
 
             // VALOR
 
@@ -168,15 +141,12 @@ public class GraficoBarras extends JPanel {
 
             String nombre = nombres[i];
 
-            int textoX = x + (anchoBarra
-                    - g2.getFontMetrics().stringWidth(nombre)) / 2;
+            int textoX = x + (anchoBarra - g2.getFontMetrics().stringWidth(nombre)) / 2;
 
-            g2.drawString(
-                    nombre,
-                    textoX,
-                    margenSuperior + altoGrafico + 22);
+            g2.drawString(nombre, textoX, margenSuperior + altoGrafico + 22);
         }
 
         g2.dispose();
     }
 }
+
