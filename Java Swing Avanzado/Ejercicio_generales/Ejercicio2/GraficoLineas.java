@@ -67,10 +67,7 @@ public class GraficoLineas extends JPanel {
         try {
 
             // Mejorar la calidad del dibujo
-            g2.setRenderingHint(
-                RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON
-            );
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
             int ancho = getWidth();
             int alto = getHeight();
@@ -219,11 +216,7 @@ public class GraficoLineas extends JPanel {
             int anchoTexto = g2.getFontMetrics()
                                .stringWidth(texto);
 
-            g2.drawString(
-                texto,
-                margenIzquierdo - anchoTexto - 10,
-                y + 4
-            );
+            g2.drawString(texto, margenIzquierdo - anchoTexto - 10, y + 4);
 
             g2.setColor(new Color(225, 230, 235));
         }
@@ -261,8 +254,7 @@ public class GraficoLineas extends JPanel {
 
         for (int i = 0; i < 7; i++) {
 
-            int x = margenIzquierdo
-                    + (i * anchoGrafico / 6);
+            int x = margenIzquierdo+ (i * anchoGrafico / 6);
 
             double proporcion =
                 (limiteSuperior - temperaturas[i])
@@ -361,3 +353,4 @@ public class GraficoLineas extends JPanel {
         );
     }
 }
+
