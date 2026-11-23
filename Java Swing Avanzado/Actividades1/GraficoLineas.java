@@ -22,18 +22,14 @@ public class GraficoLineas extends JPanel {
     public void actualizarDatos(
             String[] nombres, double[] valores) {
 
-        if (nombres == null || valores == null
-                || nombres.length < 2
-                || nombres.length != valores.length) {
+        if (nombres == null || valores == null || nombres.length < 2|| nombres.length != valores.length) {
 
-            throw new IllegalArgumentException(
-                    "Se necesitan al menos dos datos.");
+            throw new IllegalArgumentException("Se necesitan al menos dos datos.");
         }
 
         for (double valor : valores) {
             if (!Double.isFinite(valor)) {
-                throw new IllegalArgumentException(
-                        "Los valores deben ser numéricos.");
+                throw new IllegalArgumentException("Los valores deben ser numéricos.");
             }
         }
 
@@ -47,9 +43,7 @@ public class GraficoLineas extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g.create();
-        g2.setRenderingHint(
-                RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         int ancho = getWidth();
         int alto = getHeight();
@@ -101,19 +95,12 @@ public class GraficoLineas extends JPanel {
 
             g2.setColor(new Color(225, 230, 238));
 
-            g2.drawLine(
-                    izquierda,
-                    y,
-                    ancho - derecha,
-                    y);
+            g2.drawLine(izquierda, y,ancho - derecha,y);
 
             g2.setColor(OSCURO);
             g2.setFont(new Font("Segoe UI", Font.PLAIN, 10));
 
-            g2.drawString(
-                    String.format("%.1f", valor),
-                    15,
-                    y + 4);
+            g2.drawString(String.format("%.1f", valor),15,y + 4);
         }
 
         // EJES
@@ -141,29 +128,19 @@ public class GraficoLineas extends JPanel {
 
         for (int i = 0; i < cantidad; i++) {
 
-            puntosX[i] = izquierda
-                    + i * anchoGrafico / (cantidad - 1);
+            puntosX[i] = izquierda + i * anchoGrafico / (cantidad - 1);
 
-            puntosY[i] = superior + (int) (
-                    (limiteSuperior - valores[i])
-                    / rango * altoGrafico);
+            puntosY[i] = superior + (int) ((limiteSuperior - valores[i])/ rango * altoGrafico);
         }
 
         // CONECTAR LOS PUNTOS
 
         g2.setColor(AZUL);
-        g2.setStroke(new BasicStroke(
-                3,
-                BasicStroke.CAP_ROUND,
-                BasicStroke.JOIN_ROUND));
+        g2.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND , BasicStroke.JOIN_ROUND));
 
         for (int i = 0; i < cantidad - 1; i++) {
 
-            g2.drawLine(
-                    puntosX[i],
-                    puntosY[i],
-                    puntosX[i + 1],
-                    puntosY[i + 1]);
+            g2.drawLine(puntosX[i], puntosY[i], puntosX[i + 1], puntosY[i + 1]);
         }
 
         // DIBUJAR PUNTOS Y ETIQUETAS
@@ -193,24 +170,18 @@ public class GraficoLineas extends JPanel {
                 textoY = y + 23;
             }
 
-            g2.drawString(
-                    valor,
-                    x - anchoTexto / 2,
-                    textoY);
+            g2.drawString(valor,x - anchoTexto / 2, textoY);
 
             // NOMBRE DEL DIA
 
             g2.setFont(new Font("Segoe UI", Font.PLAIN, 10));
 
-            int anchoNombre = g2.getFontMetrics()
-                    .stringWidth(nombres[i]);
+            int anchoNombre = g2.getFontMetrics().stringWidth(nombres[i]);
 
-            g2.drawString(
-                    nombres[i],
-                    x - anchoNombre / 2,
-                    superior + altoGrafico + 22);
+            g2.drawString(nombres[i],x - anchoNombre / 2, superior + altoGrafico + 22);
         }
 
         g2.dispose();
     }
 }
+
