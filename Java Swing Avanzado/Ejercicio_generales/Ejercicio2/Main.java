@@ -11,17 +11,11 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
 
             try {
-
                 // Utilizar el estilo visual del sistema operativo
-                UIManager.setLookAndFeel(
-                    UIManager.getSystemLookAndFeelClassName()
-                );
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
             } catch (Exception e) {
-
-                System.err.println(
-                    "No se pudo establecer el estilo visual."
-                );
+                System.err.println("No se pudo establecer el estilo visual.");
             }
 
             // Crear la ventana principal
@@ -30,9 +24,7 @@ public class Main {
             );
 
             // Agregar el panel de temperaturas
-            ventana.setContentPane(
-                new GraficosPanel()
-            );
+            ventana.setContentPane(new GraficosPanel());
 
             // Configurar dimensiones
             ventana.setSize(1050, 650);
@@ -50,3 +42,4 @@ public class Main {
         });
     }
 }
+
